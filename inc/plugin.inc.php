@@ -91,7 +91,7 @@ function import_plugins() {
     $plugins_dir = 'inc/plugins';
     $contents = scandir($plugins_dir);
     foreach ($contents as $dir) {
-        if ($dir == '.' || $dir == '..') {
+        if ($dir == '.' || $dir == '..' || strpos($dir, '.') === 0) {
             continue;
         }
         $plugin_file = $plugins_dir . DIRECTORY_SEPARATOR . $dir . DIRECTORY_SEPARATOR . $dir . '.plugin.php';
