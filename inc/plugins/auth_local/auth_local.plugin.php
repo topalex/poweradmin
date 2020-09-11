@@ -204,13 +204,15 @@ function SQLAuthenticate() {
                     exit;
                 }
             } else if (isset($_POST['authenticate'])) {
+                log_warn(sprintf('Failed authentication attempt from [%s] for user \'%s\'', $_SERVER['REMOTE_ADDR'], $_SESSION["userlogin"]));
+
 //				auth( _('Authentication failed! - <a href="reset_password.php">(forgot password)</a>'),"error");
                 auth(_('Authentication failed!'), "error");
             } else {
                 auth();
             }
         } else if (isset($_POST['authenticate'])) {
-            log_warn(sprintf('Failed authentication attempt from [%s]', $_SERVER['REMOTE_ADDR']));
+            log_warn(sprintf('Failed authentication attempt from [%s] for user \'%s\'', $_SERVER['REMOTE_ADDR'], $_SESSION["userlogin"]));
 
             //Authentication failed, retry.
 //			auth( _('Authentication failed! - <a href="reset_password.php">(forgot password)</a>'),"error");
