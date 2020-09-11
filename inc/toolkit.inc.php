@@ -701,7 +701,7 @@ function debug_print($var) {
 function do_log($syslog_message, $priority) {
     global $syslog_use, $syslog_ident, $syslog_facility;
     if ($syslog_use) {
-        openlog($syslog_ident, LOG_PERROR, $syslog_facility);
+        openlog($syslog_ident, LOG_ODELAY, $syslog_facility);
         syslog($priority, $syslog_message);
         closelog();
     }
