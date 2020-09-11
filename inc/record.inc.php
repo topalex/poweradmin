@@ -1501,7 +1501,7 @@ function order_domain_results($domains, $sortby) {
                 unset($domains[$key]);
                 break;
             default:
-                continue;
+                break;
         }
     }
 
